@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Lottery Header</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- En-tête avec logo et boutons de profil -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo.png" alt="The National Lottery" class="logo">
+        </div>
+        <div class="button-container">
+            <div class="balance-button">
+                <span id="balance">0.00 €</span>
+                <button onclick="refreshBalance()" class="refresh-icon">&#8635;</button>
+            </div>
+            <button class="profile-button">Profil</button>
+            <button class="logout-button">Se déconnecter</button>
+        </div>
+    </header>
+
+    <!-- Barre de navigation avec boutons -->
+    <nav class="nav-buttons">
+        <button class="nav-button">RÉSULTATS</button>
+        <button class="nav-button">ACHAT DE BILLETS</button>
+        <button class="nav-button">JEUX EN LIGNE</button>
+        <button class="nav-button">PROMOTIONS</button>
+        <button class="nav-button">POINTS CHANCEUX</button>
+        <img src="logo-zebet.png" alt="ZEbet Logo" class="zebet-logo">
+    </nav>
+
+    <!-- Section d'informations sur le tirage -->
+    <section class="lottery-info">
+        <div class="lottery-details">
+            <label for="lottery-select" class="lottery-label">CHOISIR UN TIRAGE</label>
+            <select id="lottery-select" class="lottery-select">
+                <option value="1">Mardi 30 juillet 2024 à 20h10</option>
+            </select>
+            <span class="countdown-text">TIRAGE AU SORT DANS 2 JOURS ET 1 HEURE</span>
+        </div>
+    
+        <div class="prize">
+            <span class="prize-label">PRIX</span>
+            <span class="prize-value">20 000€</span>
+        </div>
+    
+        <div class="ticket-price">
+            <span class="ticket-label">PRIX PAR BILLET</span>
+            <span class="ticket-value">2,00€</span>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
