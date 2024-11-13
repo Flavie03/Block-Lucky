@@ -270,3 +270,66 @@ body {
     margin-top: 10px;
     font-weight: bold;
 }
+/* Style de la section "Mes Billets" */
+.ticket-summary {
+    background-color: #f8f8f8; /* Couleur de fond clair */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour l'effet de carte */
+    text-align: center;
+    width: 250px; /* Largeur ajustée pour la disposition */
+    margin: 20px auto; /* Centrer la section */
+    font-family: Arial, sans-serif;
+}
+
+.ticket-summary h3 {
+    font-size: 18px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #003366;
+}
+
+.summary-label {
+    font-weight: bold;
+}
+
+.summary-value {
+    font-weight: bold;
+}
+
+.pay-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.pay-button:hover {
+    background-color: #cc0000;
+}
+
+.ticket-numbers-summary {
+    font-size: 16px;
+    color: #003366;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.ticket-numbers {
+    margin-left: 10px;
+    letter-spacing: 5px; /* Espacement entre les chiffres */
+}
