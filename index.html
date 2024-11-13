@@ -55,65 +55,69 @@
         </div>
     </section>
 
-    <!-- Section d'entrée de numéro de ticket -->
-    <section class="ticket-section">
-        <div class="ticket-input">
-            <h3>ENTREZ VOTRE NUMÉRO DE TICKET</h3>
-            <div class="ticket-numbers">
-                <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 1">
-                <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 2">
-                <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 3">
-                <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 4">
-                <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 5">
-                <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 6">
+    <!-- Conteneur pour les sections "Entrée de Numéro de Ticket" et "Mes Billets" -->
+    <div class="main-container">
+        <!-- Section d'entrée de numéro de ticket à gauche -->
+        <section class="ticket-section">
+            <div class="ticket-input">
+                <h3>ENTREZ VOTRE NUMÉRO DE TICKET</h3>
+                <div class="ticket-numbers">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 1">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 2">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 3">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 4">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 5">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 6">
+                </div>
+                <button class="search-button">NUMÉRO DE RECHERCHE</button>
             </div>
-            <button class="search-button">NUMÉRO DE RECHERCHE</button>
-        </div>
 
-        <!-- Section de sélection des billets -->
-        <div class="ticket-selection">
-            <h3>CHOISISSEZ VOTRE/VOS BILLET(S)</h3>
-            <div class="ticket-list">
-                <div class="ticket-card">
-                    <img src="ticket1.png" alt="Ticket Image">
-                    <button class="add-to-cart">AJOUTER AU PANIER</button>
-                </div>
-                <div class="ticket-card">
-                    <img src="ticket1.png" alt="Ticket Image">
-                    <button class="add-to-cart">AJOUTER AU PANIER</button>
-                </div>
-                <div class="ticket-card">
-                    <img src="ticket1.png" alt="Ticket Image">
-                    <button class="add-to-cart">AJOUTER AU PANIER</button>
-                </div>
-                <div class="ticket-card">
-                    <img src="ticket1.png" alt="Ticket Image">
-                    <button class="add-to-cart">AJOUTER AU PANIER</button>
+            <!-- Section de sélection des billets -->
+            <div class="ticket-selection">
+                <h3>CHOISISSEZ VOTRE/VOS BILLET(S)</h3>
+                <div class="ticket-list">
+                    <div class="ticket-card">
+                        <img src="ticket1.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
+                    <div class="ticket-card">
+                        <img src="ticket1.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
+                    <div class="ticket-card">
+                        <img src="ticket1.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
+                    <div class="ticket-card">
+                        <img src="ticket1.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="ticket-summary">
-        <h3>MES BILLETS :</h3>
-        <div class="summary-item">
-            <span class="summary-label">SOUS-TOTAL :</span>
-            <span class="summary-value">1,00 €</span>
-        </div>
-        <div class="summary-item">
-            <span class="summary-label">REMISE :</span>
-            <span class="summary-value">0,00 €</span>
-        </div>
-        <div class="summary-item">
-            <span class="summary-label">TOTAL :</span>
-            <span class="summary-value">1,00 €</span>
-        </div>
-        <button class="pay-button">PROCÉDER AU PAIEMENT</button>
-        <div class="ticket-numbers-summary">
-            <span>BULLETINS :</span>
-            <span class="ticket-numbers">2 2 0 7 8 3</span>
-        </div>
-    </section>
+        </section>
 
+        <!-- Section "Mes Billets" à droite -->
+        <section class="ticket-summary">
+            <h3>MES BILLETS :</h3>
+            <div class="summary-item">
+                <span class="summary-label">SOUS-TOTAL :</span>
+                <span class="summary-value">1,00 €</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-label">REMISE :</span>
+                <span class="summary-value">0,00 €</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-label">TOTAL :</span>
+                <span class="summary-value">1,00 €</span>
+            </div>
+            <button class="pay-button">PROCÉDER AU PAIEMENT</button>
+            <div class="ticket-numbers-summary">
+                <span>BULLETINS :</span>
+                <span class="ticket-numbers">2 2 0 7 8 3</span>
+            </div>
+        </section>
+    </div>
 
     <script src="script.js"></script>
 </body>

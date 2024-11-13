@@ -82,7 +82,6 @@ body {
 .nav-button {
     flex: 1;
     padding: 15px 20px;
-    /* Proportions ajustées pour correspondre à la hauteur */
     border-right: 1px solid #fff;
     background-color: #003366;
     color: white;
@@ -95,7 +94,6 @@ body {
 
 .nav-button:last-child {
     border-right: none;
-    /* Pas de bordure à droite pour le dernier bouton */
 }
 
 .nav-button:hover {
@@ -107,21 +105,20 @@ body {
     margin-left: 15px;
     background-color: white;
     padding: 5px;
-    /* Pour correspondre à la mise en page de l'image */
-}
-/* Style de la section d'informations sur le tirage */
-.lottery-info {
-    background-color: #00b5e2; /* Couleur bleu clair */
-    padding: 50px 200px; /* Espace intérieur */
-    display: flex;
-    justify-content: space-between; /* Pour séparer chaque élément en colonnes */
-    align-items: center;
-    color: black;
-    width: 100vw; /* Prend toute la largeur de la fenêtre */
-    margin: 0; /* Supprime toute marge */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
 
+/* Style de la section d'informations sur le tirage */
+.lottery-info {
+    background-color: #00b5e2;
+    padding: 70px 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 .lottery-details,
 .prize,
@@ -191,14 +188,38 @@ body {
     font-weight: bold;
     color: rgb(255, 255, 255);
 }
-/* Section principale de l'entrée de numéro de ticket */
+
+/* Conteneur principal pour les sections */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    width: 100vw; /* Prendre toute la largeur de l'écran */
+    box-sizing: border-box;
+}
+
+/* Largeur de chaque section pour qu'elles prennent toute la largeur */
 .ticket-section {
+    flex: 1;
     padding: 20px;
     text-align: center;
 }
 
+.ticket-summary {
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
 .ticket-input h3,
-.ticket-selection h3 {
+.ticket-selection h3,
+.ticket-summary h3 {
     font-size: 18px;
     color: #003366;
     margin-bottom: 15px;
@@ -270,23 +291,6 @@ body {
     margin-top: 10px;
     font-weight: bold;
 }
-/* Style de la section "Mes Billets" */
-.ticket-summary {
-    background-color: #f8f8f8; /* Couleur de fond clair */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour l'effet de carte */
-    text-align: center;
-    width: 250px; /* Largeur ajustée pour la disposition */
-    margin: 20px auto; /* Centrer la section */
-    font-family: Arial, sans-serif;
-}
-
-.ticket-summary h3 {
-    font-size: 18px;
-    color: #003366;
-    margin-bottom: 20px;
-}
 
 .summary-item {
     display: flex;
@@ -296,10 +300,7 @@ body {
     color: #003366;
 }
 
-.summary-label {
-    font-weight: bold;
-}
-
+.summary-label,
 .summary-value {
     font-weight: bold;
 }
@@ -331,5 +332,5 @@ body {
 
 .ticket-numbers {
     margin-left: 10px;
-    letter-spacing: 5px; /* Espacement entre les chiffres */
+    letter-spacing: 5px;
 }
