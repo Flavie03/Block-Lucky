@@ -305,7 +305,7 @@ body {
     font-weight: bold;
 }
 
-.pay-button {
+.buy-ticket {
     background-color: red;
     color: white;
     border: none;
@@ -319,7 +319,7 @@ body {
     transition: background-color 0.3s;
 }
 
-.pay-button:hover {
+.buy-ticket:hover {
     background-color: #cc0000;
 }
 
