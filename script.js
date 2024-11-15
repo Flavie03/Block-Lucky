@@ -8,10 +8,35 @@ function closeModal() {
   document.getElementById('paymentModal').style.display = 'none';
 }
 
-// Fonction pour traiter le paiement
-function processPayment() {
-  alert('Paiement en cours...');
-  closeModal(); // Ferme le popup après le paiement
+// Fonction pour afficher le popup de confirmation
+function showConfirmation() {
+  document.getElementById('confirmationModal').style.display = 'flex';
+}
+
+// Fonction de soumission des informations
+function submitInformation() {
+  const personName = document.getElementById('personName').value;
+  const walletName = document.getElementById('walletName').value;
+  const idUpload = document.getElementById('idUpload').files[0];
+
+  if (personName && walletName && idUpload) {
+      closeModal(); // Ferme le popup d'information
+      showConfirmation(); // Affiche le popup de confirmation
+  } else {
+      alert('Veuillez remplir tous les champs et télécharger la carte d\'identité.');
+  }
+}
+
+// Fonction pour poursuivre les achats
+function continueShopping() {
+  document.getElementById('confirmationModal').style.display = 'none';
+  alert("Redirection vers la page d'accueil...");
+}
+
+// Fonction pour voir les billets achetés
+function viewTickets() {
+  document.getElementById('confirmationModal').style.display = 'none';
+  alert("Redirection vers vos billets achetés...");
 }
 
 // Fonction pour rafraîchir le solde

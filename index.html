@@ -12,7 +12,7 @@
     <!-- En-tête avec logo et boutons de profil -->
     <header class="header">
         <div class="logo-container">
-            <img src="logo.png" alt="The National Lottery" class="logo">
+            <img src="/assets/main.png" alt="The National Lottery" class="logo">
         </div>
         <div class="button-container">
             <div class="balance-button">
@@ -31,7 +31,7 @@
         <button class="nav-button">JEUX EN LIGNE</button>
         <button class="nav-button">PROMOTIONS</button>
         <button class="nav-button">POINTS CHANCEUX</button>
-        <img src="logo-zebet.png" alt="ZEbet Logo" class="zebet-logo">
+        <img src="/assets/zebet.png" alt="ZEbet Logo" class="zebet-logo">
     </nav>
 
     <!-- Section d'informations sur le tirage -->
@@ -77,19 +77,19 @@
                 <h3>CHOISISSEZ VOTRE/VOS BILLET(S)</h3>
                 <div class="ticket-list">
                     <div class="ticket-card">
-                        <img src="ticket1.png" alt="Ticket Image">
+                        <img src="/assets/ticket1.png" alt="Ticket Image">
                         <button class="add-to-cart">AJOUTER AU PANIER</button>
                     </div>
                     <div class="ticket-card">
-                        <img src="ticket1.png" alt="Ticket Image">
+                        <img src="/assets/ticket2.png" alt="Ticket Image">
                         <button class="add-to-cart">AJOUTER AU PANIER</button>
                     </div>
                     <div class="ticket-card">
-                        <img src="ticket1.png" alt="Ticket Image">
+                        <img src="/assets/ticket3.png" alt="Ticket Image">
                         <button class="add-to-cart">AJOUTER AU PANIER</button>
                     </div>
                     <div class="ticket-card">
-                        <img src="ticket1.png" alt="Ticket Image">
+                        <img src="/assets/ticket4.png" alt="Ticket Image">
                         <button class="add-to-cart">AJOUTER AU PANIER</button>
                     </div>
                 </div>
@@ -139,7 +139,22 @@
             <!-- Boutons Annuler et Soumettre -->
             <div class="button-container">
                 <button class="cancel-button" onclick="closeModal()">ANNULER</button>
-                <button class="confirm-button" onclick="processPayment()">SOUMETTRE</button>
+                <button class="confirm-button" onclick="submitInformation()">ACHETER</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de confirmation d'achat -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h2>Félicitations !</h2>
+            <p>Votre achat a été effectué avec succès. Nous vous souhaitons bonne chance.</p>
+            <img src="/assets/logo.png" alt="The National Lottery" class="confirmation-logo">
+            <p>Utilisateur : 120</p>
+            <p>N° de commande : 4289466</p>
+            <div class="button-container">
+                <button class="continue-button" onclick="continueShopping()">Poursuivre les achats</button>
+                <button class="view-tickets-button" onclick="viewTickets()">Voir les billets achetés</button>
             </div>
         </div>
     </div>
