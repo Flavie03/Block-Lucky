@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Lottery Header</title>
     <link rel="stylesheet" href="style.css">
+  
 </head>
+
 <body>
-    
-    <button id="connect">Connect MetaMask</button>
-    
 
     <header class="header">
         <div class="logo-container">
@@ -21,7 +21,7 @@
                 <button onclick="refreshBalance()" class="refresh-icon">&#8635;</button>
             </div>
             <button class="profile-button">Profil</button>
-            <button class="logout-button">Se déconnecter</button>
+            <button id="connect" class="logout-button">Connect to MetaMask</button>
         </div>
     </header>
 
@@ -112,7 +112,7 @@
                 <span class="summary-label">TOTAL :</span>
                 <span class="summary-value">1,00 €</span>
             </div>
-            
+
             <button id="buy-ticket" class="buy-ticket">PROCÉDER AU PAIEMENT</button>
             <div class="ticket-numbers-summary">
                 <span>BULLETINS :</span>
@@ -121,94 +121,15 @@
         </section>
     </div>
 
-
-    <!-- Include Web3.js -->
+    <!-- Liste des participants -->
+    <section class="participants-section">
+        <h3>Participants en temps réel :</h3>
+        <ul id="participants-list">
+            <!-- Les participants seront ajoutés ici dynamiquement -->
+        </ul>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.7.3/dist/web3.min.js"></script>
-
-    <script>
-        let web3;
-        let userAddress;
-        let contract;
-        let isMetaMaskConnected = false; // Track if MetaMask is connected
-        let isPermissionRequested = false; // Track if permissions have been requested
-
-        // Check if MetaMask is installed
-        if (typeof window.ethereum !== 'undefined') {
-            web3 = new Web3(window.ethereum);
-            
-            // Listen for MetaMask account changes
-            ethereum.on('accountsChanged', (accounts) => {
-                userAddress = accounts[0];
-                console.log('Account changed to:', userAddress);
-            });
-
-            ethereum.on('chainChanged', (chainId) => {
-                console.log('Network changed to:', chainId);
-            });
-
-            // Request account access when the "Connect MetaMask" button is clicked
-            document.getElementById('connect').addEventListener('click', async () => {
-                if (!isPermissionRequested) {
-                    try {
-                        isPermissionRequested = true;  // Flag to prevent multiple requests
-
-                        // Request account access from MetaMask
-                        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                        userAddress = accounts[0];  // Get the connected account address
-                        console.log('Connected account:', userAddress);
-
-                        // Enable the "Buy Ticket" button
-                        document.getElementById('buy-ticket').disabled = false;
-                        alert('MetaMask connected. Account: ' + userAddress);
-
-                        // Initialize the contract instance with the provided contract ABI and address
-                        const contractAddress = '0x2F7Ca7235e033a49518A814f602965046D31FA09';  // Replace with your contract's address
-                        const contractABI = [
-                            {
-                                "inputs": [],
-                                "name": "buyTicket",
-                                "outputs": [],
-                                "stateMutability": "payable",
-                                "type": "function"
-                            }
-                        ];
-
-                        // Create a contract instance
-                        contract = new web3.eth.Contract(contractABI, contractAddress);
-                    } catch (error) {
-                        console.error('Error connecting to MetaMask:', error);
-                        alert('Error: Unable to connect to MetaMask');
-                    }
-                } else {
-                    alert('MetaMask is already connected!');
-                }
-            });
-
-            // Listen for "Buy Ticket" button click to send a transaction
-            document.getElementById('buy-ticket').addEventListener('click', async () => {
-                if (!userAddress || !contract) {
-                    alert('Please connect to MetaMask first!');
-                    return;
-                }
-
-                try {
-                    // Call the buyTicket method of the contract
-                    await contract.methods.buyTicket().send({
-                        from: userAddress,  // The connected MetaMask account
-                        value: web3.utils.toWei('0.01', 'ether')  // Sending 1 Ether
-                    });
-
-                    alert('Ticket purchased successfully!');
-                    console.log('Transaction successful');
-                } catch (error) {
-                    console.error('Error buying ticket:', error);
-                    alert('Error: Unable to purchase ticket.');
-                }
-            });
-        } else {
-            alert('Please install MetaMask!');  // MetaMask not detected
-        }
-    </script>
     <script src="script.js"></script>
 </body>
+
 </html>
