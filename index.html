@@ -55,9 +55,9 @@
         </div>
     </section>
 
-    <!-- Conteneur principal pour les sections "Entrée de Numéro de Ticket" et "Mes Billets" -->
+    <!-- Conteneur principal pour les sections -->
     <div class="main-container">
-        <!-- Section d'entrée de numéro de ticket à gauche -->
+        <!-- Section d'entrée de numéro de ticket -->
         <section class="ticket-section">
             <div class="ticket-input">
                 <h3>ENTREZ VOTRE NUMÉRO DE TICKET</h3>
@@ -73,7 +73,7 @@
             </div>
 
             <!-- Section de sélection des billets -->
-            <div class="ticket-selection">
+            <div id="ticketSelection" class="ticket-selection" style="display: none;">
                 <h3>CHOISISSEZ VOTRE/VOS BILLET(S)</h3>
                 <div class="ticket-list">
                     <div class="ticket-card">
@@ -96,8 +96,8 @@
             </div>
         </section>
 
-        <!-- Section "Mes Billets" à droite -->
-        <section class="ticket-summary">
+        <!-- Section "Mes Billets" -->
+        <section id="ticketSummary" class="ticket-summary" style="display: none;">
             <h3>MES BILLETS :</h3>
             <div class="summary-item">
                 <span class="summary-label">SOUS-TOTAL :</span>
@@ -119,24 +119,16 @@
         </section>
     </div>
 
-    <!-- Popup pour entrer le nom, le nom du wallet et télécharger la carte d'identité -->
-    <div class="modal" id="paymentModal">
+    <!-- Popup de paiement -->
+    <div class="modal" id="paymentModal" style="display: none;">
         <div class="modal-content">
             <h2>Informations Personnelles :</h2>
-
-            <!-- Champ pour le nom de la personne -->
             <label for="personName">Nom de la personne</label>
             <input type="text" id="personName" placeholder="Entrez votre nom">
-
-            <!-- Champ pour le nom du Wallet -->
             <label for="walletName">Nom du Wallet</label>
             <input type="text" id="walletName" placeholder="Entrez le nom du Wallet">
-
-            <!-- Bouton pour télécharger la carte d'identité -->
             <label for="idUpload">Carte d'identité</label>
             <input type="file" id="idUpload" accept=".jpg,.jpeg,.png,.pdf">
-
-            <!-- Boutons Annuler et Soumettre -->
             <div class="button-container">
                 <button class="cancel-button" onclick="closeModal()">ANNULER</button>
                 <button class="confirm-button" onclick="submitInformation()">ACHETER</button>

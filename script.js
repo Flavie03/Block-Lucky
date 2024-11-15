@@ -1,3 +1,22 @@
+// Fonction pour afficher la section "CHOISISSEZ VOTRE/VOS BILLET(S)"
+function showTicketSelection() {
+  document.getElementById('ticketSelection').style.display = 'block';
+}
+
+// Ajout de l'événement au bouton "NUMÉRO DE RECHERCHE"
+document.querySelector('.search-button').addEventListener('click', showTicketSelection);
+
+// Fonction pour afficher la section "MES BILLETS"
+function showTicketSummary() {
+  document.getElementById('ticketSummary').style.display = 'block';
+}
+
+// Ajout de l'événement à tous les boutons "AJOUTER AU PANIER"
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', showTicketSummary);
+});
+
 // Fonction pour ouvrir le popup de paiement
 function openModal() {
   document.getElementById('paymentModal').style.display = 'flex';
@@ -10,18 +29,19 @@ function closeModal() {
 
 // Fonction pour afficher le popup de confirmation
 function showConfirmation() {
-  document.getElementById('confirmationModal').style.display = 'flex';
+  const confirmationModal = document.getElementById('confirmationModal');
+  confirmationModal.style.display = 'flex';
 }
 
-// Fonction de soumission des informations
+// Fonction pour soumettre les informations de paiement
 function submitInformation() {
   const personName = document.getElementById('personName').value;
   const walletName = document.getElementById('walletName').value;
   const idUpload = document.getElementById('idUpload').files[0];
 
   if (personName && walletName && idUpload) {
-      closeModal(); // Ferme le popup d'information
-      showConfirmation(); // Affiche le popup de confirmation
+      closeModal();
+      showConfirmation();
   } else {
       alert('Veuillez remplir tous les champs et télécharger la carte d\'identité.');
   }
