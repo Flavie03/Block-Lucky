@@ -9,12 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@chainlink/contracts": "^1.0.0",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "alchemy-sdk": "^3.4.8",
     "dotenv": "^16.4.5",
     "ethers": "^5.7.2",
     "node-fetch": "^3.3.2",
     "touch": "^3.1.1",
+    "truffle-plugin-verify": "^0.6.7",
     "web3": "^4.15.0"
   },
   "devDependencies": {
