@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Lottery Header</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- En-tête avec logo et boutons de profil -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="/assets/main.png" alt="The National Lottery" class="logo">
+        </div>
+        <div class="button-container">
+            <div class="balance-button">
+                <span id="balance">0.00 €</span>
+                <button onclick="refreshBalance()" class="refresh-icon">&#8635;</button>
+            </div>
+            <button class="profile-button">Profil</button>
+            <button id="connect" class="logout-button">Connect to MetaMask</button>
+        </div>
+    </header>
+
+    <!-- Barre de navigation avec boutons -->
+    <nav class="nav-buttons">
+        <button class="nav-button">RÉSULTATS</button>
+        <button class="nav-button">ACHAT DE BILLETS</button>
+        <button class="nav-button">JEUX EN LIGNE</button>
+        <button class="nav-button">PROMOTIONS</button>
+        <button class="nav-button">POINTS CHANCEUX</button>
+        <img src="/assets/zebet.png" alt="ZEbet Logo" class="zebet-logo">
+    </nav>
+
+    <!-- Section d'informations sur le tirage -->
+    <section class="lottery-info">
+        <div class="lottery-details">
+            <label for="lottery-select" class="lottery-label">CHOISIR UN TIRAGE</label>
+            <select id="lottery-select" class="lottery-select">
+                <option value="1">Mardi 30 juillet 2024 à 20h10</option>
+            </select>
+            <span class="countdown-text">TIRAGE AU SORT DANS 2 JOURS ET 1 HEURE</span>
+        </div>
+
+        <div class="prize">
+            <span class="prize-label">PRIX</span>
+            <span class="prize-value">20 000€</span>
+        </div>
+
+        <div class="ticket-price">
+            <span class="ticket-label">PRIX PAR BILLET</span>
+            <span class="ticket-value">2,00€</span>
+        </div>
+    </section>
+
+    <!-- Conteneur principal pour les sections -->
+    <div class="main-container">
+        <!-- Section d'entrée de numéro de ticket -->
+        <section class="ticket-section">
+            <div class="ticket-input">
+                <h3>ENTREZ VOTRE NUMÉRO DE TICKET</h3>
+                <div class="ticket-numbers">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 1">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 2">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 3">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 4">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 5">
+                    <input type="text" maxlength="1" class="ticket-number" aria-label="Numéro de ticket 6">
+                </div>
+                <button class="search-button">NUMÉRO DE RECHERCHE</button>
+            </div>
+
+            <!-- Section de sélection des billets -->
+            <div id="ticketSelection" class="ticket-selection" style="display: none;">
+                <h3>CHOISISSEZ VOTRE/VOS BILLET(S)</h3>
+                <div class="ticket-list">
+                    <div class="ticket-card">
+                        <img src="/assets/ticket1.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
+                    <div class="ticket-card">
+                        <img src="/assets/ticket2.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
+                    <div class="ticket-card">
+                        <img src="/assets/ticket3.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
+                    <div class="ticket-card">
+                        <img src="/assets/ticket4.png" alt="Ticket Image">
+                        <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Mes Billets" -->
+        <section id="ticketSummary" class="ticket-summary" style="display: none;">
+            <h3>MES BILLETS :</h3>
+            <div class="summary-item">
+                <span class="summary-label">SOUS-TOTAL :</span>
+                <span class="summary-value">1,00 €</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-label">REMISE :</span>
+                <span class="summary-value">0,00 €</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-label">TOTAL :</span>
+                <span class="summary-value">1,00 €</span>
+            </div>
+            <button class="pay-button" onclick="openModal()">PROCÉDER AU PAIEMENT</button>
+            <div class="ticket-numbers-summary">
+                <span>BULLETINS :</span>
+                <span class="ticket-numbers">2 2 0 7 8 3</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Popup de paiement -->
+    <div class="modal" id="paymentModal" style="display: none;">
+        <div class="modal-content">
+            <h2>Informations Personnelles :</h2>
+            <label for="personName">Nom de la personne</label>
+            <input type="text" id="personName" placeholder="Entrez votre nom">
+            <label for="walletName">Nom du Wallet</label>
+            <input type="text" id="walletName" placeholder="Entrez le nom du Wallet">
+            <label for="idUpload">Carte d'identité</label>
+            <input type="file" id="idUpload" accept=".jpg,.jpeg,.png,.pdf">
+            <div class="button-container">
+                <button class="cancel-button" onclick="closeModal()">ANNULER</button>
+                <button id="buy-ticket" class="buy-ticket" onclick="submitInformation()">ACHETER</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de confirmation d'achat -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h2>Félicitations !</h2>
+            <p>Votre achat a été effectué avec succès. Nous vous souhaitons bonne chance.</p>
+            <img src="/assets/logo.png" alt="The National Lottery" class="confirmation-logo">
+            <p>Utilisateur : 120</p>
+            <p>N° de commande : 4289466</p>
+            <div class="button-container">
+                <button class="continue-button" onclick="continueShopping()">Poursuivre les achats</button>
+                <button class="view-tickets-button" onclick="viewTickets()">Voir les billets achetés</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.7.3/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+
+
+
+
+    <div id="loading" style="display: none;"></div>
+
+</body>
+
+</html>
